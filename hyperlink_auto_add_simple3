@@ -1,0 +1,19 @@
+Sub hyperlink_auto_add_simple3()
+'
+' Macro1 Macro
+'
+
+'
+    Const colnum As Integer = 3
+    Dim rownum As Integer
+    
+    rownum = 2
+    Do While Cells(rownum, colnum).Value <> ""
+
+        ActiveSheet.Hyperlinks.Add Anchor:=Cells(rownum, colnum), Address:= _
+            "http://www.hmdb.ca/metabolites/" & Cells(rownum, colnum).Value, TextToDisplay:=Cells(rownum, colnum).Value
+        rownum = rownum + 1
+    
+    Loop
+
+End Sub
