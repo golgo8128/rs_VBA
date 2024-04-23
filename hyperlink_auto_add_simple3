@@ -1,9 +1,8 @@
-Sub hyperlink_auto_add_simple3()
+Sub hyperlink_auto_add_simple3_HMDB()
 '
 ' Macro1 Macro
 '
 
-'
     Const colnum As Integer = 3
     Dim rownum As Integer
     
@@ -17,3 +16,24 @@ Sub hyperlink_auto_add_simple3()
     Loop
 
 End Sub
+
+
+Sub hyperlink_auto_add_simple3_PubMed()
+
+    Const colnum As Integer = 1
+    Dim rownum As Integer
+    
+    rownum = 2
+    Do While Cells(rownum, colnum).Value <> ""
+
+        ActiveSheet.Hyperlinks.Add Anchor:=Cells(rownum, colnum), Address:= _
+            "https://pubmed.ncbi.nlm.nih.gov/" & Cells(rownum, colnum).Value, TextToDisplay:=Str(Cells(rownum, colnum).Value)
+            ' TextToDisplay must be String.
+            ' Refer to https://learn.microsoft.com/ja-jp/office/vba/api/excel.hyperlinks.add
+        rownum = rownum + 1
+    
+    Loop
+
+End Sub
+
+
