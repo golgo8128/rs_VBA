@@ -17,6 +17,12 @@ Sub ColorCellsWithDuplicatedValues()
     Set val_to_count_h = CreateObject("Scripting.Dictionary")
     Set val_to_coloridx_h = CreateObject("Scripting.Dictionary")
     
+    If sel_range.Count < 2 Then
+        MsgBox "複数のセルを選んで下さい。その中で重複を見つけます。"
+        Exit Sub
+    End If
+    
+    
     ' Loop through each cell in the range
     For Each cur_cell In sel_range
         If cur_cell.Value <> "" Then ' Check if the cell is not empty
@@ -54,3 +60,4 @@ Sub ColorCellsWithDuplicatedValues()
     Set val_to_coloridx_h = Nothing
     
 End Sub
+
